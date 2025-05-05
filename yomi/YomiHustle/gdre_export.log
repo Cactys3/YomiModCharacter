@@ -1,0 +1,63 @@
+GDRE Tools v0.9.1
+Windows 10.0.26100, AMD Radeon (TM) Graphics, opengl3
+Opening file: C:/Program Files (x86)/Steam/steamapps/common/YourOnlyMoveIsHUSTLE/YourOnlyMoveIsHUSTLE.pck
+Multiple passing candidates for bytecode version 13:
+3.5.0-stable (a7aad78), 3.2.0-stable (5565f55)
+Choosing only one that matches engine version: 3.5.0-stable (a7aad78).
+Verified 5214 files, no errors detected!
+Extracted 5214 files, no errors detected!
+WARNING: Converting lossy imports, you may lose fidelity for indicated assets when re-importing upon loading the project
+   at: ImportExporter::export_imports (modules\gdsdecomp\utility\import_exporter.cpp:285)
+Recreating plugin configs...
+Exporting resources in parallel...
+WARNING: Conversion for Resource of type PackedScene and format 3.x PackedScene not implemented
+   at: ImportExporter::report_unsupported_resource (modules\gdsdecomp\utility\import_exporter.cpp:670)
+WARNING: Conversion for Resource of type Mesh and format obj not implemented
+   at: ImportExporter::report_unsupported_resource (modules\gdsdecomp\utility\import_exporter.cpp:670)
+Saved project config project.godot.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     461
+Failed scripts:                         0
+Imported resources for export session:  2434
+Successfully converted:                 2431
+Lossy:                                  0
+Rewrote metadata:                       0
+Non-importable conversions:             0
+Not converted:                          3
+Failed conversions:                     0
+-------------
+
+------
+
+The following files were not converted because support has not been implemented yet:
+res://.import/character.dae-d0811ca915fae73b20c90e1040b6e2c7.scn to res://assets/character.dae
+res://.import/projectile_shape_1.obj-2075ac9f747bbe89405a5ef4f516b397.mesh to res://assets/projectile_shape_1.obj
+res://.import/sword.obj-502b66c7573a8d998b0891ef5f512331.mesh to res://assets/sword.obj
+
+
+
+---------------------------------IMPORTANT NOTES----------------------------------
+
+
+Unsupported Resources Detected:
+The following resource types were detected in the project that conversion is not implemented for yet.
+See Export Report to see which resources were not exported.
+You will still be able to edit the project in the editor regardless.
+ - Resource Type: PackedScene, Format: 3.x packedscene
+ - Resource Type: Mesh, Format: obj
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 3.5.1 to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+
