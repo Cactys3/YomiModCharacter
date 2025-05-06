@@ -1,0 +1,13 @@
+{
+  "name": "Katarina",
+  "friendly_name": "Katarina - girl",
+  "description": "balanced",
+  "author": "you",
+  "version": "1.0",
+  "link": "",
+  "id": "broimneediomdnafionvcxb",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "priority": 0,
+  "client_side": true
+}
