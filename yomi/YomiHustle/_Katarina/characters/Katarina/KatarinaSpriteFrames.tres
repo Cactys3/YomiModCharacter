@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=53 format=2]
+[gd_resource type="SpriteFrames" load_steps=66 format=2]
 
 [ext_resource path="res://characters/stickman/sprites/stickman30.png" type="Texture" id=1]
 [ext_resource path="res://_Katarina/characters/Katarina/sprites/Katarina.png" type="Texture" id=2]
+[ext_resource path="res://_Katarina/characters/Katarina/sprites/KatarinaNew.png" type="Texture" id=3]
 [ext_resource path="res://characters/stickman/sprites/stickman3.png" type="Texture" id=16]
 [ext_resource path="res://characters/stickman/sprites/stickman6.png" type="Texture" id=17]
 [ext_resource path="res://characters/stickman/sprites/stickman2.png" type="Texture" id=18]
@@ -70,6 +71,54 @@ region = Rect2( 1280, 0, 128, 128 )
 atlas = ExtResource( 2 )
 region = Rect2( 1408, 0, 128, 128 )
 
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 3 )
+region = Rect2( 896, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 3 )
+region = Rect2( 1024, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 3 )
+region = Rect2( 1152, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 3 )
+region = Rect2( 1280, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 3 )
+region = Rect2( 1408, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 3 )
+region = Rect2( 1536, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 3 )
+region = Rect2( 1664, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 3 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 3 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 3 )
+region = Rect2( 640, 0, 128, 128 )
+
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
 region = Rect2( 1536, 0, 128, 128 )
@@ -130,9 +179,9 @@ region = Rect2( 3200, 0, 128, 128 )
 atlas = ExtResource( 2 )
 region = Rect2( 3328, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 128, 128 )
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 0, 128, 128 )
 
 [resource]
 animations = [ {
@@ -226,6 +275,11 @@ animations = [ {
 "name": "Landing",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "MultiSpin",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "New Anim",
@@ -251,6 +305,11 @@ animations = [ {
 "name": "RollForward",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": true,
+"name": "Stab",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 73 ) ],
 "loop": true,
 "name": "ThrowTech",
@@ -261,7 +320,7 @@ animations = [ {
 "name": "Voracity",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 27 ) ],
+"frames": [ SubResource( 39 ) ],
 "loop": true,
 "name": "Wait",
 "speed": 30.0
