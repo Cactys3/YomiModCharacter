@@ -1,0 +1,216 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://projectile/DirProjectileDefault.gd" type="Script" id=2]
+[ext_resource path="res://_Katarina/characters/Katarina/sprites/KatarinaNew.png" type="Texture" id=3]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://sound/common/burst.wav" type="AudioStream" id=5]
+[ext_resource path="res://sound/common/explosion2.wav" type="AudioStream" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 3840, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 3968, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 4096, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 4224, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 4352, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 4480, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 4608, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 4736, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 4864, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 4992, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 5120, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 5248, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 5376, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 5504, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 5632, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 5760, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 5888, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 3 )
+region = Rect2( 6016, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 3 )
+region = Rect2( 6144, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 3 )
+region = Rect2( 6272, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 3 )
+region = Rect2( 6400, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 3 )
+region = Rect2( 6528, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "BloodWave",
+"speed": 5.0
+} ]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+extra_state_variables = "immunity_susceptible"
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = SubResource( 23 )
+animation = "BloodWave"
+
+[node name="CollisionBox" parent="." index="2"]
+x = 13
+y = -12
+width = 39
+height = 31
+
+[node name="Hurtbox" parent="." index="3"]
+x = 13
+y = -12
+width = 39
+height = 31
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 2 )
+sprite_animation = "BloodWave"
+anim_length = 44
+ticks_per_frame = 2
+refresh_loop = false
+endless = false
+enter_force_dir_x = "1"
+enter_force_speed = "20"
+projectile_match_facing = true
+move_speed = "20"
+_c_Homing_Options = 0
+homing = true
+homing_turn_speed = "1"
+homing_accel = "1"
+max_homing_speed = "10"
+start_homing = false
+lifetime = 44
+relative_data_dir = false
+num_hits = 18
+bounce_on_ground = false
+num_bounces = 2
+
+[node name="HitboxMain" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 4 )
+x = 13
+y = -12
+width = 39
+height = 31
+damage = 30
+minimum_damage = 30
+hitstun_ticks = 10
+combo_hitstun_ticks = 5
+hitlag_ticks = 1
+victim_hitlag = 1
+combo_victim_hitlag = 1
+cancellable = false
+hits_otg = true
+di_modifier = ".4"
+sdi_modifier = ".4"
+ignore_armor = true
+can_clash = false
+allowed_to_hit_own_team = false
+block_punishable = true
+parriable = false
+plus_frames = 2
+group = 1
+screenshake_amount = 20
+whiff_sound = ExtResource( 5 )
+hit_sound = ExtResource( 6 )
+knockback = "0.5"
+disable_collision = false
+start_tick = 1
+active_ticks = 15
+looping = true
+
+[node name="HitboxExplosion" type="Node2D" parent="StateMachine/Default" index="1"]
+z_index = 1000
+script = ExtResource( 4 )
+x = 13
+y = -12
+width = 73
+height = 45
+damage = 200
+damage_in_combo = 200
+minimum_damage = 200
+chip_damage_modifier = "2"
+hitlag_ticks = 10
+victim_hitlag = 10
+cancellable = false
+hits_otg = true
+di_modifier = "5"
+sdi_modifier = "5"
+ignore_armor = true
+can_clash = false
+guard_break = true
+hit_height = 0
+priority = 10
+group = 2
+screenshake_amount = 50
+whiff_sound = ExtResource( 5 )
+hit_sound = ExtResource( 6 )
+knockback = "20"
+block_pushback_modifier = "50"
+knockdown = true
+hard_knockdown = true
+air_ground_bounce = true
+ground_bounce_knockback_modifier = "20"
+wall_slam = true
+start_tick = 19
+active_ticks = 3

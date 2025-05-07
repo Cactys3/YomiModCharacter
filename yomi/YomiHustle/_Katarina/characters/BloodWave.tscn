@@ -1,0 +1,236 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://obj/BaseObj.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_Katarina/characters/Katarina/sprites/KatarinaNew.png" type="Texture" id=2]
+[ext_resource path="res://characters/stickman/projectiles/fireball_states/Default.gd" type="Script" id=3]
+[ext_resource path="res://projectile/IndicatorDraw.gd" type="Script" id=4]
+[ext_resource path="res://projectile/BaseProjectile.gd" type="Script" id=5]
+[ext_resource path="res://theme.tres" type="Theme" id=6]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=7]
+[ext_resource path="res://sound/common/burst.wav" type="AudioStream" id=8]
+[ext_resource path="res://sound/common/explosion2.wav" type="AudioStream" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 3840, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 3968, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 4096, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 4224, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 4352, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 4480, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 4608, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 4736, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 4864, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 4992, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 5120, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 5248, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 5376, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 5504, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 5632, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 5760, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 5888, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 6016, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 6144, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 6272, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 6400, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 6528, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "BloodWave",
+"speed": 5.0
+} ]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+gravity = "0"
+ground_friction = "0"
+air_friction = "0"
+max_air_speed = "15"
+max_fall_speed = "0"
+has_projectile_parry_window = false
+immunity_susceptible = true
+deletes_other_projectiles = true
+fizzle_on_ceiling = false
+movable = true
+can_be_hit_by_melee = false
+hit_by_self_projectiles = false
+hit_cancel_on_hit = false
+free_cancel_on_hit = false
+apply_hitlag_when_hit_by_melee = true
+projectile_immune = false
+hitlag_modifier = "1.0"
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = SubResource( 23 )
+animation = "BloodWave"
+frame = 21
+
+[node name="Default" type="Node2D" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+fallback_state = "Default"
+sprite_animation = "BloodWave"
+anim_length = 176
+ticks_per_frame = 8
+disable_at_end = true
+force_dir_x = "2"
+enter_force_dir_x = "2"
+move_x = 10
+clash = false
+num_hits = 88
+lifetime = 176
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="HitboxMain" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 7 )
+x = 13
+y = -12
+width = 39
+height = 31
+damage = 30
+minimum_damage = 30
+hitstun_ticks = 15
+combo_hitstun_ticks = 5
+hitlag_ticks = 5
+victim_hitlag = 5
+combo_victim_hitlag = 5
+cancellable = false
+hits_otg = true
+di_modifier = ".4"
+sdi_modifier = ".4"
+meter_gain_modifier = "0.2"
+ignore_armor = true
+can_clash = false
+allowed_to_hit_own_team = false
+block_punishable = true
+parriable = false
+plus_frames = 2
+group = 1
+screenshake_amount = 20
+whiff_sound = ExtResource( 8 )
+hit_sound = ExtResource( 9 )
+knockback = "3"
+disable_collision = false
+start_tick = 1
+active_ticks = 112
+looping = true
+loop_active_ticks = 3
+
+[node name="HitboxExplosion" type="Node2D" parent="StateMachine/Default" index="1"]
+z_index = 1000
+script = ExtResource( 7 )
+x = 13
+y = -12
+width = 73
+height = 45
+damage = 200
+damage_in_combo = 200
+minimum_damage = 200
+chip_damage_modifier = "2"
+hitlag_ticks = 10
+victim_hitlag = 10
+cancellable = false
+hits_otg = true
+di_modifier = "5"
+sdi_modifier = "5"
+ignore_armor = true
+can_clash = false
+guard_break = true
+hit_height = 0
+priority = 10
+group = 2
+screenshake_amount = 50
+whiff_sound = ExtResource( 8 )
+hit_sound = ExtResource( 9 )
+knockback = "20"
+block_pushback_modifier = "50"
+knockdown = true
+hard_knockdown = true
+air_ground_bounce = true
+ground_bounce_knockback_modifier = "20"
+wall_slam = true
+start_tick = 144
+active_ticks = 24
+
+[node name="IndicatorDraw" type="Node2D" parent="." index="6"]
+visible = false
+modulate = Color( 1, 1, 1, 0.588235 )
+z_index = 4096
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="IndicatorDraw" index="0"]
+margin_left = -20.0
+margin_top = -16.0
+margin_right = 20.0
+margin_bottom = 15.0
+theme = ExtResource( 6 )
+text = "P1"
+align = 1
+valign = 1

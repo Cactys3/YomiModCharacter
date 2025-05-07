@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_Katarina/characters/Katarina/KatarinaSpriteFrames.tres" type="SpriteFrames" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://sound/common/explosion2.wav" type="AudioStream" id=7]
 [ext_resource path="res://sound/common/burst.wav" type="AudioStream" id=8]
 [ext_resource path="res://_Katarina/characters/Katarina/sprites/knife_icon.png" type="Texture" id=9]
+[ext_resource path="res://_Katarina/characters/Katarina/sprites/bloodwave_icon.png" type="Texture" id=10]
+[ext_resource path="res://_Katarina/characters/BloodWave.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -30,7 +32,8 @@ shader_param/outline_color = Color( 0, 0, 0, 1 )
 [node name="Sprite" parent="Flip" index="0"]
 material = SubResource( 1 )
 frames = ExtResource( 2 )
-animation = "MultiSpin"
+animation = "BloodWave"
+frame = 3
 
 [node name="Voracity" type="Node2D" parent="StateMachine" index="57"]
 script = ExtResource( 6 )
@@ -304,3 +307,60 @@ disable_collision = false
 start_tick = 8
 active_ticks = 8
 looping = true
+
+[node name="BloodWave" type="Node2D" parent="StateMachine" index="60"]
+script = ExtResource( 6 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "BloodWave"
+anim_length = 22
+ticks_per_frame = 2
+force_dir_x = "1"
+force_tick = 3
+enter_force_dir_x = "1"
+enter_force_speed = "1"
+projectile_scene = ExtResource( 11 )
+projectile_tick = 7
+projectile_pos_x = 2
+projectile_pos_y = -18
+projectile_match_facing = true
+title = "BloodWave"
+type = 2
+button_texture = ExtResource( 10 )
+iasa_at = 20
+iasa_on_hit = 20
+next_state_on_hold = false
+end_feint = false
+burst_cancellable = false
+self_hit_cancellable = false
+self_interruptable = false
+instant_cancellable = false
+interrupt_from_string = "Grounded
+Aerial
+"
+interrupt_into_string = "Grounded
+Aerial
+"
+hit_cancel_into_string = "Grounded
+Aerial
+"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/BloodWave" index="0"]
+z_index = 1000
+script = ExtResource( 4 )
+x = 10
+y = -27
+width = 23
+height = 31
+damage = 50
+minimum_damage = 30
+hitstun_ticks = 10
+hitlag_ticks = 1
+victim_hitlag = 2
+screenshake_amount = 6
+whiff_sound = ExtResource( 8 )
+hit_sound = ExtResource( 7 )
+knockback = "1"
+start_tick = 6
+active_ticks = 1
